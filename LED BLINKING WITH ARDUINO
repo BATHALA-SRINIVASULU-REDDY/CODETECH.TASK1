@@ -1,0 +1,27 @@
+// Pin number where the LED is connected
+const int ledPin = 13;
+
+// Interval in milliseconds
+const unsigned long interval = 1000; // 1000 ms = 1 second
+
+// Variables to store the current and previous time
+unsigned long previousMillis = 0;
+
+void setup() {
+  // Set the LED pin as an output
+  pinMode(ledPin, OUTPUT);
+}
+
+void loop() {
+  // Get the current time
+  unsigned long currentMillis = millis();
+
+  // Check if the interval has passed
+  if (currentMillis - previousMillis >= interval) {
+    // Save the current time
+    previousMillis = currentMillis;
+
+    // Toggle the LED state
+    digitalWrite(ledPin, !digitalRead(ledPin));
+  }
+}
